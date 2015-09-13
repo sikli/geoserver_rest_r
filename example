@@ -1,0 +1,40 @@
+#Specify parameters
+user           <- "admin" #username
+password       <- "geoserver" #password 
+geoserver.url  <- "http://localhost:8080/geoserver/" #url to geoserver
+workspace.name <- "myworkspace" #workspace where Tifs are going to be uploaded
+
+img.path       <- "/Users/martin/Downloads/img.tif" #tif file path
+img.name       <- sub(".tif", "", basename(img.path)) #tif name
+
+style.name    <- "mystyle" #Note: stlye has to be in same workspace as Tif (!!)
+
+#-----------------------------------------UPLOAD FILES---------------------------------------------
+
+#Load functions
+source("functions.R")
+
+#creates datastore
+createDatastore(user           = user,
+                password       = password,
+                workspace.name = workspace.name,
+                img.path       = img.path,
+                img.name       = img.name,
+                geoserver.url  = geoserver.url
+                )
+#creates layer
+createLayer(user           = user,
+            password       = password,
+            workspace.name = workspace.name,
+            img.name       = img.name,
+            geoserver.url  = geoserver.url
+            )
+
+#applies style to layer
+applyStyle(user           = user,
+           password       = password,
+           workspace.name = workspace.name,
+           img.name       = img.name,
+           style.name     = style.name,
+           geoserver.url  = geoserver.url
+           )
