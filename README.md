@@ -8,5 +8,3 @@ Right now only four functions are available:
 - Add new layer: createLayer()
 - Apply style: applyStyle()
 
-## Add new Workspace
-
