@@ -28,6 +28,7 @@ createLayer(user           = user,
             workspace.name = workspace.name,
             img.name       = img.name,
             geoserver.url  = geoserver.url
+			epsg 		   = showEPSG(proj4string(raster(img.path)))
             )
 
 #applies style to layer
